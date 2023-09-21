@@ -37,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   dynamic controller;
   bool isBusy = false;
-  //dynamic textRecognizer;
+  dynamic textRecognizer;
   late Size size;
 
   @override
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //TODO code to initialize the camera feed
   initializeCamera() async {
     //TODO initialize detector
-    //textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+    textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
 
     controller = CameraController(cameras[0], ResolutionPreset.high);
     await controller.initialize().then((_) {
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void dispose() {
     controller?.dispose();
-    //textRecognizer.close();
+    textRecognizer.close();
     super.dispose();
   }
 
@@ -75,14 +75,13 @@ class _MyHomePageState extends State<MyHomePage> {
   dynamic _scanResults;
   CameraImage? img;
   doTextRecognitionOnFrame() async {
-    // var frameImg = getInputImage();
-    // RecognizedText recognizedText = await textRecognizer.processImage(frameImg);
-    // print(recognizedText.text);
+    var frameImg = getInputImage();
+    RecognizedText recognizedText = await textRecognizer.processImage(frameImg);
+    print(recognizedText.text);
     setState(() {
-      //_scanResults = recognizedText;
+      _scanResults = recognizedText;
       isBusy = false;
     });
-
   }
 
   InputImage getInputImage() {
@@ -95,11 +94,11 @@ class _MyHomePageState extends State<MyHomePage> {
     final camera = cameras[0];
     final imageRotation =
         InputImageRotationValue.fromRawValue(camera.sensorOrientation);
-    // if (imageRotation == null) return;
+    //if (imageRotation == null) return;
 
     final inputImageFormat =
         InputImageFormatValue.fromRawValue(img!.format.raw);
-    // if (inputImageFormat == null) return null;
+    //if (inputImageFormat == null) return null;
 
     final planeData = img!.planes.map(
       (Plane plane) {
@@ -164,19 +163,23 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
 
-      // stackChildren.add(
-      //   Positioned(
-      //       top: 0.0,
-      //       left: 0.0,
-      //       width: size.width,
-      //       height: size.height,
-      //       child: buildResult()),
-      // );
+      stackChildren.add(
+        Positioned(
+            top: 0.0,
+            left: 0.0,
+            width: size.width,
+            height: size.height,
+            child: buildResult()),
+      );
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Text Recognizer",style: TextStyle(fontSize: 25),)),
+        title: const Center(
+            child: Text(
+          "CNN_CAMERA",
+          style: TextStyle(fontSize: 25),
+        )),
         backgroundColor: Colors.brown,
       ),
       backgroundColor: Colors.black,
@@ -230,7 +233,10 @@ class TextRecognitionPainter extends CustomPainter {
           textAlign: TextAlign.left,
           textDirection: TextDirection.ltr);
       tp.layout();
-      tp.paint(canvas, Offset(block.boundingBox.left * scaleX, block.boundingBox.top * scaleY));
+      tp.paint(
+          canvas,
+          Offset(
+              block.boundingBox.left * scaleX, block.boundingBox.top * scaleY));
 
       for (TextLine line in block.lines) {
         // Same getters as TextBlock

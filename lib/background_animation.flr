@@ -1,0 +1,17 @@
+class BackgroundAnimation extends StatelessWidget {
+  const BackgroundAnimation({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: double.infinity,
+      child: FlareActor(
+        'background_animation.flr', // Replace with your animation file path
+        alignment: Alignment.center,
+        fit: BoxFit.cover,
+        animation: 'darkjan', // Replace with the animation you want to use
+      ),
+    );
+  }
+}

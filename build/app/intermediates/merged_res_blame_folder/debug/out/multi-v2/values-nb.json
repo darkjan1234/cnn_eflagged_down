@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\eflag_cnn\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
+            "outputFile": "D:\\cnncamera\\cnn_eflagged_down-2\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\values-nb\\values-nb.xml",
@@ -21,23 +21,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\5dbb5b43bf0d0c9451c9c0591e112874\\transformed\\jetified-play-services-basement-18.0.1\\res\\values-nb\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "125",
-                        "endOffsets": "320"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1064",
-                        "endColumns": "129",
-                        "endOffsets": "1189"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\3ff720be07735976176520d1c05fb799\\transformed\\jetified-play-services-base-18.0.1\\res\\values-nb\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -52,6 +35,23 @@
                         "startOffsets": "55,161,320,446,555,711,841,961,1194,1348,1455,1616,1744,1886,2062,2129,2191",
                         "endColumns": "105,158,125,108,155,129,119,102,153,106,160,127,141,175,66,61,77",
                         "endOffsets": "156,315,441,550,706,836,956,1059,1343,1450,1611,1739,1881,2057,2124,2186,2264"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\6b0daa5fb4c2eb7e8b55778df9b972f6\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-nb\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "125",
+                        "endOffsets": "320"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1064",
+                        "endColumns": "129",
+                        "endOffsets": "1189"
                     }
                 }
             ]

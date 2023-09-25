@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\eflag_cnn\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
+            "outputFile": "D:\\cnncamera\\cnn_eflagged_down-2\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\6b0daa5fb4c2eb7e8b55778df9b972f6\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-fr-rCA\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "199",
+                        "endColumns": "156",
+                        "endOffsets": "355"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1118",
+                        "endColumns": "160",
+                        "endOffsets": "1274"
+                    }
+                },
                 {
                     "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\3ff720be07735976176520d1c05fb799\\transformed\\jetified-play-services-base-18.0.1\\res\\values-fr-rCA\\values.xml",
                     "from": {
@@ -18,23 +35,6 @@
                         "startOffsets": "55,161,341,471,580,751,884,1005,1279,1474,1586,1771,1907,2067,2246,2319,2383",
                         "endColumns": "105,179,129,108,170,132,120,112,194,111,184,135,159,178,72,63,83",
                         "endOffsets": "156,336,466,575,746,879,1000,1113,1469,1581,1766,1902,2062,2241,2314,2378,2462"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\5dbb5b43bf0d0c9451c9c0591e112874\\transformed\\jetified-play-services-basement-18.0.1\\res\\values-fr-rCA\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "199",
-                        "endColumns": "156",
-                        "endOffsets": "355"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1118",
-                        "endColumns": "160",
-                        "endOffsets": "1274"
                     }
                 },
                 {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart'; // Import FlareActor
-import 'package:eflagged_down/list_tyle/list_tile.dart';
+import 'package:realtime_text_recognition/list_tyle/list_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

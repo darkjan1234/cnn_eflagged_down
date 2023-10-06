@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
-import 'package:eflagged_down/homescreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:realtime_text_recognition/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'record/record.dart';
 import 'violation/violation.dart';
@@ -7,6 +8,7 @@ import 'cameracnn/cameracnn.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(); // Initialize Firebase
   cameras = await availableCameras();
   runApp(const MyApp());
 }

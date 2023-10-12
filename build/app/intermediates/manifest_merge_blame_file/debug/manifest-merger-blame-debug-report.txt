@@ -13,14 +13,14 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->D:\cnncamera\cnn_eflagged_down-2\android\app\src\debug\AndroidManifest.xml:7:5-66
-15-->D:\cnncamera\cnn_eflagged_down-2\android\app\src\debug\AndroidManifest.xml:7:22-64
+15-->D:\System\cnn_eflagged_down\android\app\src\debug\AndroidManifest.xml:7:5-66
+15-->D:\System\cnn_eflagged_down\android\app\src\debug\AndroidManifest.xml:7:22-64
 16    <uses-permission android:name="android.permission.CAMERA" />
-16-->[:camera_android] D:\cnncamera\cnn_eflagged_down-2\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-65
-16-->[:camera_android] D:\cnncamera\cnn_eflagged_down-2\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-62
+16-->[:camera_android] D:\System\cnn_eflagged_down\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-65
+16-->[:camera_android] D:\System\cnn_eflagged_down\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-62
 17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-17-->[:camera_android] D:\cnncamera\cnn_eflagged_down-2\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-71
-17-->[:camera_android] D:\cnncamera\cnn_eflagged_down-2\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-68
+17-->[:camera_android] D:\System\cnn_eflagged_down\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-71
+17-->[:camera_android] D:\System\cnn_eflagged_down\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-68
 18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 18-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\Ritz\.gradle\caches\transforms-3\1c097a7e374a1c9069e02d30afaa5f49\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:26:5-79
 18-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\Ritz\.gradle\caches\transforms-3\1c097a7e374a1c9069e02d30afaa5f49\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:26:22-76
@@ -75,37 +75,37 @@
 60            android:value="2" />
 61
 62        <service
-62-->[:firebase_auth] D:\cnncamera\cnn_eflagged_down-2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+62-->[:firebase_auth] D:\System\cnn_eflagged_down\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 63            android:name="com.google.firebase.components.ComponentDiscoveryService"
-63-->[:firebase_auth] D:\cnncamera\cnn_eflagged_down-2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
+63-->[:firebase_auth] D:\System\cnn_eflagged_down\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
 64            android:directBootAware="true"
 64-->[com.google.firebase:firebase-common:20.3.3] C:\Users\Ritz\.gradle\caches\transforms-3\c4ac58b7f86267bd1dde0fed4c7fc60e\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:34:13-43
 65            android:exported="false" >
 65-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\Ritz\.gradle\caches\transforms-3\1c097a7e374a1c9069e02d30afaa5f49\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:68:13-37
 66            <meta-data
-66-->[:firebase_auth] D:\cnncamera\cnn_eflagged_down-2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+66-->[:firebase_auth] D:\System\cnn_eflagged_down\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 67                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-67-->[:firebase_auth] D:\cnncamera\cnn_eflagged_down-2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+67-->[:firebase_auth] D:\System\cnn_eflagged_down\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
 68                android:value="com.google.firebase.components.ComponentRegistrar" />
-68-->[:firebase_auth] D:\cnncamera\cnn_eflagged_down-2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+68-->[:firebase_auth] D:\System\cnn_eflagged_down\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 69            <meta-data
-69-->[:firebase_database] D:\cnncamera\cnn_eflagged_down-2\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+69-->[:firebase_database] D:\System\cnn_eflagged_down\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 70                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
-70-->[:firebase_database] D:\cnncamera\cnn_eflagged_down-2\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-127
+70-->[:firebase_database] D:\System\cnn_eflagged_down\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-127
 71                android:value="com.google.firebase.components.ComponentRegistrar" />
-71-->[:firebase_database] D:\cnncamera\cnn_eflagged_down-2\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+71-->[:firebase_database] D:\System\cnn_eflagged_down\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 72            <meta-data
-72-->[:cloud_firestore] D:\cnncamera\cnn_eflagged_down-2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+72-->[:cloud_firestore] D:\System\cnn_eflagged_down\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 73                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-73-->[:cloud_firestore] D:\cnncamera\cnn_eflagged_down-2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
+73-->[:cloud_firestore] D:\System\cnn_eflagged_down\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
 74                android:value="com.google.firebase.components.ComponentRegistrar" />
-74-->[:cloud_firestore] D:\cnncamera\cnn_eflagged_down-2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+74-->[:cloud_firestore] D:\System\cnn_eflagged_down\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 75            <meta-data
-75-->[:firebase_core] D:\cnncamera\cnn_eflagged_down-2\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+75-->[:firebase_core] D:\System\cnn_eflagged_down\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 76                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-76-->[:firebase_core] D:\cnncamera\cnn_eflagged_down-2\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+76-->[:firebase_core] D:\System\cnn_eflagged_down\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
 77                android:value="com.google.firebase.components.ComponentRegistrar" />
-77-->[:firebase_core] D:\cnncamera\cnn_eflagged_down-2\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+77-->[:firebase_core] D:\System\cnn_eflagged_down\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 78            <meta-data
 78-->[com.google.firebase:firebase-auth:22.1.2] C:\Users\Ritz\.gradle\caches\transforms-3\1c097a7e374a1c9069e02d30afaa5f49\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:69:13-71:85
 79                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\cnncamera\\cnn_eflagged_down-2\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt\\values-lt.xml",
+            "outputFile": "D:\\System\\cnn_eflagged_down\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt\\values-lt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\f885f1d2513986d7284ff3eccc99e6c0\\transformed\\jetified-play-services-base-18.1.0\\res\\values-lt\\values.xml",

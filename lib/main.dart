@@ -1,10 +1,12 @@
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:realtime_text_recognition/data/data.dart';
 import 'package:realtime_text_recognition/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'record/record.dart';
 import 'violation/violation.dart';
 import 'cameracnn/cameracnn.dart';
+import 'data/data.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/record/record': (context) => const RecordsScreen(),
         '/violation/violation': (context) => const Violation(),
         '/cameracnn/cameracnn': (context) => const CameraApp(),
+        '/data/data': (context) => Data(),
       },
     );
   }

@@ -22,10 +22,10 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Text('Records'),
+            title: const Text('Camera CNN'),
             onTap: () {
               Navigator.pop(context); // Close the drawer
-              Navigator.pushNamed(context, '/record/record');
+              Navigator.pushNamed(context, '/cameracnn/cameracnn');
             },
           ),
           ListTile(
@@ -36,10 +36,24 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Camera CNN'),
+            title: const Text('Registration'),
             onTap: () {
               Navigator.pop(context); // Close the drawer
-              Navigator.pushNamed(context, '/cameracnn/cameracnn');
+              Navigator.pushNamed(context, '/record/record');
+            },
+          ),
+          ListTile(
+            title: const Text('Data Collection'),
+            onTap: () {
+              Navigator.pop(context); // Close the drawer
+              Navigator.pushNamed(context, '/data/data');
+            },
+          ),
+          ListTile(
+            title: const Text('Dashboard'),
+            onTap: () {
+              Navigator.pop(context); // Close the drawer
+              Navigator.pushNamed(context, '/dashboard/Dashboard');
             },
           ),
         ],

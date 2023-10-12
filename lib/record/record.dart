@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class RecordsScreen extends StatefulWidget {
+  static var length;
+
   const RecordsScreen({Key? key}) : super(key: key);
 
   @override
@@ -12,39 +14,74 @@ class RecordsScreen extends StatefulWidget {
 }
 
 class _RecordsScreenState extends State<RecordsScreen> {
-  String name = "";
-  String unit = "";
-  String ticket = "";
-  String impound = "";
   String plateNumber = "";
+  String firstName = "";
+  String lastName = "";
+  String bodyType = "";
+  String color = "";
+  String dateRegistered = "";
+  String dateExpiration = "";
+  String chassisNo = "";
+  String yearModel = "";
+  String brand = "";
 
-  void onNameChanged(String value) {
-    setState(() {
-      name = value;
-    });
-  }
-
-  void onUnitChanged(String value) {
-    setState(() {
-      unit = value;
-    });
-  }
-
-  void onTicketChanged(String value) {
-    setState(() {
-      ticket = value;
-    });
-  }
-
-  void onImpoundChanged(String value) {
-    setState(() {
-      impound = value;
-    });
-  }
-
-  void onPlateNumberChanged(String value) {
+  void onplateNumberChanged(String value) {
     setState(() {
       plateNumber = value;
+    });
+  }
+
+  void onfirstNameChanged(String value) {
+    setState(() {
+      firstName = value;
+    });
+  }
+
+  void onlastNameChanged(String value) {
+    setState(() {
+      lastName = value;
+    });
+  }
+
+  void onbodyTypeChanged(String value) {
+    setState(() {
+      bodyType = value;
+    });
+  }
+
+  void oncolorChanged(String value) {
+    setState(() {
+      color = value;
+    });
+  }
+
+  void ondateRegisteredChanged(String value) {
+    setState(() {
+      dateRegistered = value;
+    });
+  }
+
+  void ondateExpirationChanged(String value) {
+    setState(() {
+      dateExpiration = value;
+    });
+  }
+
+  void onchassisNoChanged(String value) {
+    setState(() {
+      chassisNo = value;
+    });
+  }
+
+  void onyearModelChanged(String value) {
+    setState(() {
+      yearModel = value;
+    });
+  }
+
+  void onbrandChanged(String value) {
+    setState(() {
+      brand = value;
     });
   }
 
@@ -55,31 +92,43 @@ class _RecordsScreenState extends State<RecordsScreen> {
 
   void onSaveButtonPressed() async {
     try {
-      print("Saved: $name, $unit, $ticket, $impound, $plateNumber");
+      print(
+          "Saved: $plateNumber, $firstName, $lastName, $bodyType, $color, $dateRegistered, $dateExpiration, $yearModel, $brand ");
 
       // Get a reference to the Firestore collection
-      CollectionReference drivers =
-          FirebaseFirestore.instance.collection("drivers");
+      CollectionReference details =
+          FirebaseFirestore.instance.collection("details");
 
       // Create a new document with a generated ID
-      await drivers.add({
-        "driverName": name,
-        "unitCycle": unit,
-        "ticketNumber": ticket,
-        "imPound": impound,
+      await details.add({
         "plateNumber": plateNumber,
+        "firstName": firstName,
+        "lastName": lastName,
+        "bodyType": bodyType,
+        "color": color,
+        "dateRegistered": dateRegistered,
+        "dateExpiration": dateExpiration,
+        "chassisNo": chassisNo,
+        "yearModel": yearModel,
+        "brand": brand,
       });
 
       // Clear the input fields after saving
       setState(() {
-        name = "";
-        unit = "";
-        ticket = "";
-        impound = "";
         plateNumber = "";
+        firstName = "";
+        lastName = "";
+        bodyType = "";
+        color = "";
+        dateRegistered = "";
+        dateExpiration = "";
+        chassisNo = "";
+        yearModel = "";
+        brand = "";
       });
 
-      print("$name Saved");
+      print(
+          "Saved: $plateNumber, $firstName, $lastName, $bodyType, $color, $dateRegistered, $dateExpiration, $yearModel, $brand");
     } catch (e) {
       print("Error saving data: $e");
     }
@@ -87,42 +136,64 @@ class _RecordsScreenState extends State<RecordsScreen> {
 
   void onEditButtonPressed() {
     // Implement your Edit functionality here
-    print("Deleted: $name, $unit, $ticket, $impound, $plateNumber");
+    print(
+        "Deleted: $plateNumber, $firstName, $lastName, $bodyType, $color, $dateRegistered, $dateExpiration, $yearModel, $brand");
   }
 
   void onDeleteButtonPressed() {
     // Implement your Edit functionality here
-    print("Deleted: $name, $unit, $ticket, $impound, $plateNumber");
+    print(
+        "Deleted: $plateNumber, $firstName, $lastName, $bodyType, $color, $dateRegistered, $dateExpiration, $yearModel, $brand");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Records'),
+        title: Text('PlateNo. Details'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             AnimatedInputField(
-              labelText: "Name",
-              onChanged: onNameChanged,
+              labelText: "plateNumber",
+              onChanged: onplateNumberChanged,
             ),
             AnimatedInputField(
-              labelText: "Unit",
-              onChanged: onUnitChanged,
+              labelText: "firstName",
+              onChanged: onfirstNameChanged,
             ),
             AnimatedInputField(
-              labelText: "Ticket",
-              onChanged: onTicketChanged,
+              labelText: "lastName",
+              onChanged: onlastNameChanged,
             ),
             AnimatedInputField(
-              labelText: "Impound",
-              onChanged: onImpoundChanged,
+              labelText: "bodyType",
+              onChanged: onbodyTypeChanged,
             ),
             AnimatedInputField(
-              labelText: "Plate Number",
-              onChanged: onPlateNumberChanged,
+              labelText: "Color",
+              onChanged: oncolorChanged,
+            ),
+            AnimatedInputField(
+              labelText: "dateRegsitered",
+              onChanged: ondateRegisteredChanged,
+            ),
+            AnimatedInputField(
+              labelText: "dateExpiration",
+              onChanged: ondateExpirationChanged,
+            ),
+            AnimatedInputField(
+              labelText: "chassisNo",
+              onChanged: onchassisNoChanged,
+            ),
+            AnimatedInputField(
+              labelText: "yearModel",
+              onChanged: onyearModelChanged,
+            ),
+            AnimatedInputField(
+              labelText: "Brand",
+              onChanged: onbrandChanged,
             ),
             SizedBox(height: 16.0), // Spacer
             Row(

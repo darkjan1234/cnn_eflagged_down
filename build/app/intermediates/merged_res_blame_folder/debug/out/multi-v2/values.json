@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\cnncamera\\cnn_eflagged_down-2\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "D:\\System\\cnn_eflagged_down\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\dfcd0a23c23253a4744dd79b1b0d8a5e\\transformed\\jetified-play-services-basement-18.1.0\\res\\values\\values.xml",
@@ -40,25 +40,6 @@
                     }
                 },
                 {
-                    "source": "D:\\cnncamera\\cnn_eflagged_down-2\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "176,832",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "483,998"
-                    },
-                    "to": {
-                        "startLines": "136,141",
-                        "startColumns": "4,4",
-                        "startOffsets": "9849,10157",
-                        "endLines": "140,143",
-                        "endColumns": "12,12",
-                        "endOffsets": "10152,10321"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Ritz\\.gradle\\caches\\transforms-3\\b28632eee6be296673b0aaf9b4c91cdd\\transformed\\browser-1.4.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11",
@@ -76,20 +57,22 @@
                     }
                 },
                 {
-                    "source": "D:\\cnncamera\\cnn_eflagged_down-2\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "source": "D:\\System\\cnn_eflagged_down\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,137,241,350,470,569",
-                        "endColumns": "81,103,108,119,98,75",
-                        "endOffsets": "132,236,345,465,564,640"
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,832",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "483,998"
                     },
                     "to": {
-                        "startLines": "129,130,131,132,133,134",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "9188,9270,9374,9483,9603,9702",
-                        "endColumns": "81,103,108,119,98,75",
-                        "endOffsets": "9265,9369,9478,9598,9697,9773"
+                        "startLines": "136,141",
+                        "startColumns": "4,4",
+                        "startOffsets": "9849,10157",
+                        "endLines": "140,143",
+                        "endColumns": "12,12",
+                        "endOffsets": "10152,10321"
                     }
                 },
                 {
@@ -128,6 +111,23 @@
                         "endLines": "2,11,12,25,26,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,106,135,144,148,149,153,154,155,156,175,182,230,262,299,306",
                         "endColumns": "59,71,87,68,62,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,64,58,58,59,59,59,59,59,59,59,59,59,59,58,59,59,59,59,59,59,59,59,59,59,58,59,59,58,58,58,58,58,58,34,34,54,62,54,57,57,60,62,56,50,49,60,56,65,33,34,34,69,70,116,12,109,12,128,71,66,24,24,24,24,24,24",
                         "endOffsets": "160,568,656,1645,1708,1921,1989,2061,2131,2192,2266,2339,2400,2461,2523,2587,2649,2710,2778,2878,2938,3004,3077,3146,3203,3255,3317,3389,3465,3530,3589,3648,3708,3768,3828,3888,3948,4008,4068,4128,4188,4248,4307,4367,4427,4487,4547,4607,4667,4727,4787,4847,4907,4966,5026,5086,5145,5204,5263,5322,5381,5440,5535,5570,5625,5688,5743,5801,5859,5920,5983,6040,6091,6141,6202,6259,6325,6359,6394,6429,6567,9844,10438,10639,10749,10950,11079,11151,11218,12270,12568,15868,17933,19693,20070"
+                    }
+                },
+                {
+                    "source": "D:\\System\\cnn_eflagged_down\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,137,241,350,470,569",
+                        "endColumns": "81,103,108,119,98,75",
+                        "endOffsets": "132,236,345,465,564,640"
+                    },
+                    "to": {
+                        "startLines": "129,130,131,132,133,134",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "9188,9270,9374,9483,9603,9702",
+                        "endColumns": "81,103,108,119,98,75",
+                        "endOffsets": "9265,9369,9478,9598,9697,9773"
                     }
                 }
             ]

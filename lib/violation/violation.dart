@@ -1,14 +1,30 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import '../firebase/firebase_service.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Authentication
 
 class ViolationApp extends StatelessWidget {
   const ViolationApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    // Initialize Firebase
+    final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
+    return MaterialApp(
       title: 'Violations',
-      home: Violation(),
+      home: FutureBuilder<FirebaseApp>(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return const Violation();
+          } else if (snapshot.hasError) {
+            return const Text('Error Initializing Firebase');
+          } else {
+            return const CircularProgressIndicator();
+          }
+        },
+      ),
     );
   }
 }
@@ -40,7 +56,7 @@ class _ViolationState extends State<Violation> {
 
   List<bool> selectedViolations = List.filled(13, false);
 
-  final FirebaseService firebaseService = FirebaseService();
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +83,7 @@ class _ViolationState extends State<Violation> {
           // Authenticate the user
           User? user = FirebaseAuth.instance.currentUser;
           if (user != null) {
-            // User is authenticated, proceed with saving data to the database.
+            // User is authenticated, proceed with saving data to Firestore.
             List<String> selected = [];
             for (int i = 0; i < violations.length; i++) {
               if (selectedViolations[i]) {
@@ -76,12 +92,14 @@ class _ViolationState extends State<Violation> {
             }
             print("Selected Violations: $selected");
 
-            // Save selected violations to Firebase using FirebaseService
-            await firebaseService.saveSelectedViolations(selected);
+            // Save selected violations to Firestore
+            await firestore.collection("violations").add({
+              "selectedViolations": selected,
+            });
 
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                content: Text('Selected violations saved to Firebase.'),
+                content: Text('Selected violations saved to Firestore.'),
               ),
             );
           } else {

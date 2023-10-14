@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_null_comparison, unused_local_variable
-
 import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
@@ -9,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CameraApp extends StatelessWidget {
   const CameraApp({Key? key}); // Added key parameter
@@ -35,7 +34,8 @@ Future<void> requestCameraPermission() async {
 
 late List<CameraDescription> cameras;
 
-// Import necessary packages
+// Firebase Firestore setup
+final firestoreInstance = FirebaseFirestore.instance;
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key, required this.title}) : super(key: key);
@@ -44,8 +44,6 @@ class CameraPage extends StatefulWidget {
   @override
   _CameraPageState createState() => _CameraPageState();
 }
-
-// Implement the CameraPage widget as you had it in your code
 
 class _CameraPageState extends State<CameraPage> {
   dynamic controller;
@@ -66,7 +64,7 @@ class _CameraPageState extends State<CameraPage> {
     textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
 
     try {
-      controller = CameraController(cameras[0], ResolutionPreset.high);
+      controller = CameraController(cameras[0], ResolutionPreset.max);
       await controller.initialize();
       if (mounted) {
         controller.startImageStream((image) {
@@ -93,6 +91,13 @@ class _CameraPageState extends State<CameraPage> {
     var frameImg = getInputImage(image);
     RecognizedText recognizedText = await textRecognizer.processImage(frameImg);
     print(recognizedText.text);
+
+    // Save the recognized text to Firebase Firestore
+    await firestoreInstance.collection('recognized_text').add({
+      'text': recognizedText.text,
+      'timestamp': FieldValue.serverTimestamp(),
+    });
+
     setState(() {
       _scanResults = recognizedText;
       isBusy = false;
@@ -105,8 +110,7 @@ class _CameraPageState extends State<CameraPage> {
       allBytes.putUint8List(plane.bytes);
     }
     final bytes = allBytes.done().buffer.asUint8List();
-    final Size imageSize =
-        Size(image.width.toDouble(), image.height.toDouble());
+    final Size imageSize = Size(image.width.toDouble(), image.height.toDouble());
     final camera = cameras[0];
     final imageRotation =
         InputImageRotationValue.fromRawValue(camera.sensorOrientation);

@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class ViolationApp extends StatelessWidget {
@@ -8,23 +6,9 @@ class ViolationApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize Firebase
-    final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
     return MaterialApp(
       title: 'Violations',
-      home: FutureBuilder<FirebaseApp>(
-        future: _initialization,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return const Violation();
-          } else if (snapshot.hasError) {
-            return const Text('Error Initializing Firebase');
-          } else {
-            return const CircularProgressIndicator();
-          }
-        },
-      ),
+      home: const Violation(),
     );
   }
 }
@@ -80,36 +64,25 @@ class _ViolationState extends State<Violation> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          // Authenticate the user
-          User? user = FirebaseAuth.instance.currentUser;
-          if (user != null) {
-            // User is authenticated, proceed with saving data to Firestore.
-            List<String> selected = [];
-            for (int i = 0; i < violations.length; i++) {
-              if (selectedViolations[i]) {
-                selected.add(violations[i]);
-              }
+          // Collect selected violations
+          List<String> selected = [];
+          for (int i = 0; i < violations.length; i++) {
+            if (selectedViolations[i]) {
+              selected.add(violations[i]);
             }
-            print("Selected Violations: $selected");
-
-            // Save selected violations to Firestore
-            await firestore.collection("violations").add({
-              "selectedViolations": selected,
-            });
-
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Selected violations saved to Firestore.'),
-              ),
-            );
-          } else {
-            // User is not authenticated; you may want to handle this case accordingly.
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Authentication required to save data.'),
-              ),
-            );
           }
+          print("Selected Violations: $selected");
+
+          // Save selected violations to Firestore
+          await firestore.collection("violations").add({
+            "selectedViolations": selected,
+          });
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Selected violations saved to Firestore.'),
+            ),
+          );
         },
         child: const Icon(Icons.check),
       ),

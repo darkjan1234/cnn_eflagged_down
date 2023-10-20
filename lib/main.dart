@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/record/record': (context) => const RecordsScreen(),
         '/violation/violation': (context) => const Violation(),
         '/cameracnn/cameracnn': (context) => const CameraApp(),
-        '/data/data': (context) => Data(),
+        '/data/data': (context) => const Data(),
       },
     );
   }

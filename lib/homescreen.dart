@@ -9,21 +9,28 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('E-FlagDown Assistance'),
+        title: const Text('Home App'), // Change the app title
       ),
       drawer: const AppDrawer(),
       body: const Stack(
         children: [
           BackgroundAnimation(), // Add the background animation here
-          Center(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Eflaggeddown system is almost 70%',
-                style: TextStyle(fontSize: 18.0),
-                textAlign: TextAlign.center,
-              ),
-            ),
+          ProductList(), // Add a product list here
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.messenger_outline),
+            label: 'dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: 'Settings',
           ),
         ],
       ),
@@ -44,6 +51,53 @@ class BackgroundAnimation extends StatelessWidget {
         alignment: Alignment.center,
         fit: BoxFit.cover,
         animation: 'darkjan', // Replace with the animation you want to use
+      ),
+    );
+  }
+}
+
+class ProductList extends StatelessWidget {
+  const ProductList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // You can replace this with a ListView or GridView of product cards
+    return ListView.builder(
+      itemCount: 1234, // Number of products
+      itemBuilder: (context, index) {
+        return PlateNumber(
+          productName: 'Violater Details $index',
+          productPrice: 1234, // Replace with the actual product details
+          // Add product image and other details as needed
+        );
+      },
+    );
+  }
+}
+
+class PlateNumber extends StatelessWidget {
+  final String productName;
+  final double productPrice;
+
+  const PlateNumber({
+    required this.productName,
+    required this.productPrice,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Customize the design of a product card
+    return Card(
+      child: ListTile(
+        title: Text(productName),
+        subtitle: Text('\detection${productPrice.toStringAsFixed(2)}'),
+        trailing: ElevatedButton(
+          onPressed: () {
+            // Handle the product order action
+          },
+          child: const Text('View'),
+        ),
       ),
     );
   }

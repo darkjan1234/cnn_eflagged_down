@@ -10,7 +10,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CameraApp extends StatelessWidget {
-  const CameraApp({Key? key}); // Added key parameter
+  const CameraApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -92,11 +92,19 @@ class _CameraPageState extends State<CameraPage> {
     RecognizedText recognizedText = await textRecognizer.processImage(frameImg);
     print(recognizedText.text);
 
-    // Save the recognized text to Firebase Firestore
-    await firestoreInstance.collection('recognized_text').add({
-      'text': recognizedText.text,
-      'timestamp': FieldValue.serverTimestamp(),
-    });
+    // Use regular expressions to extract the desired format (3 letters and 4 numbers)
+    RegExp regex = RegExp(r'[A-Z]{3}\s\d{4}');
+    String? extractedText = regex.stringMatch(recognizedText.text);
+
+    if (extractedText != null) {
+      print("Extracted Text: $extractedText");
+
+      // Save the recognized text to Firebase Firestore
+      await firestoreInstance.collection('recognized_text').add({
+        'text': extractedText,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+    }
 
     setState(() {
       _scanResults = recognizedText;
@@ -235,7 +243,7 @@ class TextRecognitionPainter extends CustomPainter {
 
       TextSpan span = TextSpan(
         text: block.text,
-        style: const TextStyle(fontSize: 20, color: Colors.red),
+        style: const TextStyle(fontSize: 20, color: Color.fromARGB(255, 54, 255, 35)),
       );
       TextPainter tp = TextPainter(
         text: span,

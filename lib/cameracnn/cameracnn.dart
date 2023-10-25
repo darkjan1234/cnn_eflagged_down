@@ -9,6 +9,14 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 import 'package:permission_handler/permission_handler.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../info_page.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
+  runApp(const CameraApp());
+}
+
 class CameraApp extends StatelessWidget {
   const CameraApp({Key? key}) : super(key: key);
 
@@ -77,7 +85,7 @@ class _CameraPageState extends State<CameraPage> {
     } catch (e) {
       // Handle camera initialization errors.
       print("Error initializing camera: $e");
-      // You might want to set controller to null here or handle the error appropriately.
+      // You might want to set the controller to null here or handle the error appropriately.
     }
   }
 
@@ -104,6 +112,9 @@ class _CameraPageState extends State<CameraPage> {
         'text': extractedText,
         'timestamp': FieldValue.serverTimestamp(),
       });
+
+      // Fetch and display additional information based on the license plate
+      fetchLicensePlateData(extractedText);
     }
 
     setState(() {
@@ -118,7 +129,8 @@ class _CameraPageState extends State<CameraPage> {
       allBytes.putUint8List(plane.bytes);
     }
     final bytes = allBytes.done().buffer.asUint8List();
-    final Size imageSize = Size(image.width.toDouble(), image.height.toDouble());
+    final Size imageSize =
+        Size(image.width.toDouble(), image.height.toDouble());
     final camera = cameras[0];
     final imageRotation =
         InputImageRotationValue.fromRawValue(camera.sensorOrientation);
@@ -147,6 +159,44 @@ class _CameraPageState extends State<CameraPage> {
         InputImage.fromBytes(bytes: bytes, inputImageData: inputImageData);
 
     return inputImage;
+  }
+
+  // Inside your main.dart
+  Future<void> fetchLicensePlateData(String scannedPlate) async {
+    final QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection("details")
+        .where("plateNumber", isEqualTo: scannedPlate)
+        .get();
+
+    if (querySnapshot.docs.isNotEmpty) {
+      final DocumentSnapshot document = querySnapshot.docs.first;
+      final Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+
+      // Navigate to the new InfoPage with the necessary data
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => InfoPage(
+            recognizedText: scannedPlate,
+            data: data,
+          ),
+        ),
+      );
+    } else {
+      // No match found for the scanned license plate.
+      displayNoMatchMessage();
+    }
+  }
+
+  void displayLicensePlateInformation(Map<String, dynamic> data) {
+    // Implement your code to display the information in your app's UI.
+    // You can use showDialog or any other method to create a dialog with the data.
+    // Example: showDialog(context: context, builder: (context) => YourCustomDialog(data));
+  }
+
+  void displayNoMatchMessage() {
+    // Implement your code to display a message indicating that no match was found.
+    // You can use a snackbar, toast, or any other method to show the message.
   }
 
   Widget buildResult() {
@@ -243,7 +293,8 @@ class TextRecognitionPainter extends CustomPainter {
 
       TextSpan span = TextSpan(
         text: block.text,
-        style: const TextStyle(fontSize: 20, color: Color.fromARGB(255, 54, 255, 35)),
+        style: const TextStyle(
+            fontSize: 20, color: Color.fromARGB(255, 54, 255, 35)),
       );
       TextPainter tp = TextPainter(
         text: span,

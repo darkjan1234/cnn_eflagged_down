@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:realtime_text_recognition/violation/violation.dart';
 
 class InfoPage extends StatefulWidget {
   final String recognizedText;
@@ -43,25 +44,34 @@ class _InfoPageState extends State<InfoPage> {
       appBar: AppBar(
         title: Text('Information Page'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Recognized Text: ${widget.recognizedText}'),
-            if (data != null) Text('First Name: ${data!['firstName']}'),
-            if (data != null) Text('Last Name: ${data!['lastName']}'),
-            if (data != null) Text('Brand: ${data!['brand']}'),
-            if (data != null) Text('Color: ${data!['color']}'),
-            if (data != null) Text('Chassis Number: ${data!['chassisNo']}'),
-            if (data != null)
-              Text('Date Expiration: ${data!['dateExpiration']}'),
-            if (data != null)
-              Text('Date Registered: ${data!['dateRegistered']}'),
-            if (data != null) Text('Year Model: ${data!['yearModel']}'),
-            if (data != null) Text('BodyType: ${data!['bodyType']}'),
-            // Add more Text widgets to display other information
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Recognized Text: ${widget.recognizedText}'),
+          if (data != null) Text('First Name: ${data!['firstName']}'),
+          if (data != null) Text('Last Name: ${data!['lastName']}'),
+          if (data != null) Text('Brand: ${data!['brand']}'),
+          if (data != null) Text('Color: ${data!['color']}'),
+          if (data != null) Text('Chassis Number: ${data!['chassisNo']}'),
+          if (data != null) Text('Date Expiration: ${data!['dateExpiration']}'),
+          if (data != null) Text('Date Registered: ${data!['dateRegistered']}'),
+          if (data != null) Text('Year Model: ${data!['yearModel']}'),
+          if (data != null) Text('BodyType: ${data!['bodyType']}'),
+          // Add more Text widgets to display other information
+          const Spacer(), // To push the button to the bottom
+          ElevatedButton(
+            onPressed: () {
+              // Add your next button functionality here
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Violation())
+              );
+            },
+            child: const Text('Next'),
+          ),
+        ],
       ),
     );
   }

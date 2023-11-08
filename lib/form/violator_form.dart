@@ -3,10 +3,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class Form extends StatefulWidget {
+class ViolationForm extends StatefulWidget {
   static var length;
 
-  const Form ({Key? key}) : super(key: key);
+  const ViolationForm ({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api

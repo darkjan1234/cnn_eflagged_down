@@ -1,5 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../form/violator_form.dart';
 
 class ViolationApp extends StatelessWidget {
   const ViolationApp({Key? key}) : super(key: key);
@@ -82,6 +84,12 @@ class _ViolationState extends State<Violation> {
             const SnackBar(
               content: Text('Selected violations saved to Firestore.'),
             ),
+          );
+
+          // Navigate to the "Form" route
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ViolationForm()),
           );
         },
         child: const Icon(Icons.check),

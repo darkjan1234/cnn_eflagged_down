@@ -1,63 +1,49 @@
-// ignore_for_file: unused_field
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ViolationForm extends StatefulWidget {
-  static var length;
-
-  const ViolationForm ({Key? key}) : super(key: key);
+  const ViolationForm({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _FormState createState() => _FormState();
 }
 
-class _FormState extends State<Form> {
+class _FormState extends State<ViolationForm> {
   String firstName = "";
   String lastName = "";
   String address = "";
   String age = "";
 
-  void onfirstNameChanged(String value) {
+  void onFirstNameChanged(String value) {
     setState(() {
       firstName = value;
     });
   }
 
-  void onlastNameChanged(String value) {
+  void onLastNameChanged(String value) {
     setState(() {
       lastName = value;
     });
   }
 
-  void onaddressChanged(String value) {
+  void onAddressChanged(String value) {
     setState(() {
       address = value;
     });
   }
 
-  void onageChanged(String value) {
+  void onAgeChanged(String value) {
     setState(() {
       age = value;
     });
   }
 
-  
-
-  // void onEditButtonPressed() {
-  // Implement your Edit functionality here
-  //   print("Edited: $name, $unit, $ticket, $impound, $plateNumber");
-  // }
-
   void onSaveButtonPressed() async {
     try {
-      print(
-          "Saved: $firstName, $lastName, $address, $age");
+      print("Saved: $firstName, $lastName, $address, $age");
 
       // Get a reference to the Firestore collection
-      CollectionReference form =
-          FirebaseFirestore.instance.collection("form");
+      CollectionReference form = FirebaseFirestore.instance.collection("form");
 
       // Create a new document with a generated ID
       await form.add({
@@ -75,23 +61,10 @@ class _FormState extends State<Form> {
         age = "";
       });
 
-      print(
-          "Saved: $firstName, $lastName, $address, $age");
+      print("Saved: $firstName, $lastName, $address, $age");
     } catch (e) {
       print("Error saving data: $e");
     }
-  }
-
-  void onEditButtonPressed() {
-    // Implement your Edit functionality here
-    print(
-        "Deleted: $firstName, $lastName, $address, $age");
-  }
-
-  void onDeleteButtonPressed() {
-    // Implement your Edit functionality here
-    print(
-        "Deleted: $firstName, $lastName, $address, $age");
   }
 
   @override
@@ -104,19 +77,20 @@ class _FormState extends State<Form> {
         child: Column(
           children: <Widget>[
             AnimatedInputField(
-              labelText: "firstName",
-              onChanged: onfirstNameChanged,
+              labelText: "First Name",
+              onChanged: onFirstNameChanged,
             ),
             AnimatedInputField(
-              labelText: "lastName",
-              onChanged: onlastNameChanged,
+              labelText: "Last Name",
+              onChanged: onLastNameChanged,
             ),
             AnimatedInputField(
-              labelText: "address",
-              onChanged: onaddressChanged,
-            ),AnimatedInputField(
-              labelText: "age",
-              onChanged: onageChanged,
+              labelText: "Address",
+              onChanged: onAddressChanged,
+            ),
+            AnimatedInputField(
+              labelText: "Age",
+              onChanged: onAgeChanged,
             ),
             SizedBox(height: 16.0), // Spacer
             Row(
@@ -125,16 +99,6 @@ class _FormState extends State<Form> {
                 ElevatedButton(
                   onPressed: onSaveButtonPressed,
                   child: Text('Save'),
-                ),
-                SizedBox(width: 16.0), // Spacing between buttons
-                ElevatedButton(
-                  onPressed: onEditButtonPressed,
-                  child: Text('Edit'),
-                ),
-                SizedBox(width: 16.0),
-                ElevatedButton(
-                  onPressed: onDeleteButtonPressed,
-                  child: Text('Delete'),
                 ),
               ],
             ),
@@ -150,7 +114,7 @@ class AnimatedInputField extends StatefulWidget {
   final Function(String) onChanged;
 
   const AnimatedInputField(
-      {super.key, required this.labelText, required this.onChanged});
+      {Key? key, required this.labelText, required this.onChanged});
 
   @override
   _AnimatedInputFieldState createState() => _AnimatedInputFieldState();
@@ -210,12 +174,6 @@ class _AnimatedInputFieldState extends State<AnimatedInputField> {
               ),
             ),
           ),
-          onChanged: (String name) {},
-          onEditingComplete: () {
-            setState(() {
-              _isFocused = false;
-            });
-          },
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'receipt.dart';
+
 class ViolationForm extends StatefulWidget {
   const ViolationForm({Key? key}) : super(key: key);
 
@@ -46,7 +48,7 @@ class _FormState extends State<ViolationForm> {
       CollectionReference form = FirebaseFirestore.instance.collection("form");
 
       // Create a new document with a generated ID
-      await form.add({
+      DocumentReference result = await form.add({
         "firstName": firstName,
         "lastName": lastName,
         "address": address,
@@ -62,8 +64,18 @@ class _FormState extends State<ViolationForm> {
       });
 
       print("Saved: $firstName, $lastName, $address, $age");
+
+      // Check if the document was successfully added to Firestore
+      if (result.id != null) {
+        // Navigate to ConfirmationPage
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ConfirmationPage()),
+        );
+      }
     } catch (e) {
       print("Error saving data: $e");
+      // Handle the error, you might show an error message to the user
     }
   }
 
